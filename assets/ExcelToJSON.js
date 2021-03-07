@@ -3,7 +3,7 @@ const fs = require('fs');
 const reader = require('xlsx');
 
 const jsonFileName = "./data/data.json";
-const file = reader.readFile("./datasource/Comic Writer Services.xlsx");
+const file = reader.readFile("./assets/datasource/Comic Writer Services.xlsx");
 
 let data = {
     authors: [],
