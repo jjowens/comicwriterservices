@@ -2,7 +2,7 @@ const fs = require('fs');
 
 const reader = require('xlsx');
 
-const jsonFileName = "./datasource/data.json";
+const jsonFileName = "./data/data.json";
 const file = reader.readFile("./datasource/Comic Writer Services.xlsx");
 
 let data = {
@@ -55,6 +55,13 @@ for(let i = 0; i < sheets.length; i++)
    };
         
    temp.forEach((res) => {
+    if (res.Ignore !== undefined) {
+        if (res.Ignore.length > 0) {
+            return;
+        }
+    }
+
+
       let linkData = {
          Title: "",
          Link: res.Link,

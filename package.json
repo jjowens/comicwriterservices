@@ -13,7 +13,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "npx tailwindcss-cli@latest build ./src/tailwind.css -c ./config/tailwind.dev.config.js -o ./public/css/ts/ts.css",
 	  "prod": "npx tailwindcss-cli@latest build ./src/tailwind.css -c ./config/tailwind.prod.config.js -o ./public/css/ts/ts.css",
-    "exportJSON": "node.exe .\\ExcelToJSON.js"
+    "exportjson": "node.exe .\\ExcelToJSON.js"
   },
   "repository": {
     "type": "git",
