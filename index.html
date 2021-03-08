@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="public/css/ts/ts.css" media="screen"/>
+    <script type="text/javascript" src="public/scripts/vue/vue.js"></script>
+</head>
+<body>
+    <div id="app" class="ml-4 mr-4 mt-2">
+        <div class="rounded bg-blue-200 p-2 text-black">
+            <h1>Comic Writer Services</h1>
+        </div>
+        <div class="clear-both">
+
+        </div>
+
+        <div class="flex">
+            <!-- AUTHORS -->
+            <div class="mt-2">
+                <div class="bg-blue-200 rounded-t-lg p-1">
+                    <h3>Authors</h3>
+                </div>
+                <div v-for="authorObj in authors" class="flex flex-wrap">
+                    <p>{{ authorObj.fullname }}</p>
+                </div>
+            </div>
+
+            <!-- LINKS -->
+            <div class="flex-1 rounded ml-2 mt-2">
+                <div v-for="categoryObj in categories" class="mb-4">
+                    <div class="bg-blue-200 rounded-t-lg p-2">
+                        <h3>{{ categoryObj.category }}</h3>
+                    </div>
+                    <div v-for="linkObj in categoryObj.links" class="mb-2 rounded bg-gray-100 p-2">
+                        <p>{{ linkObj.Title }}</p>
+                        <p><a href="{{ linkObj.Link }}">{{ linkObj.Link }}</a></p>
+                        <p><span v-for="authorObj in linkObj.Authors">{{ authorObj.fullname }}</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+    </div>
+</body>
+<script type="application/javascript" src="public/scripts/comicwriterservices.js"></script>
+</html>
