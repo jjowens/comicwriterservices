@@ -7,7 +7,7 @@ const file = reader.readFile("./assets/datasource/Comic Writer Services.xlsx");
 
 let data = {
     authors: [],
-    categories:[],
+    articles:[],
 }
 
 function createAuthor(fullname) {
@@ -113,7 +113,7 @@ for(let i = 0; i < sheets.length; i++)
    })
 
 
-   data.categories.push(sheetData);
+   data.articles.push(sheetData);
 }
 
 // REMOVE "NOT KNOWN" BEFORE SORTING.
