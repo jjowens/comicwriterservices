@@ -47,6 +47,13 @@ const sheets = file.SheetNames;
 for(let i = 0; i < sheets.length; i++) 
 { 
    const sheetName = file.SheetNames[i];
+
+    // CHECK IF WE SHOULD EXPORT THIS WORKSHEET
+    if (sheetName.trim().substring(0,1) === "-") {
+        console.log("Found ignored worksheet")
+        break;
+    }
+
    const temp = reader.utils.sheet_to_json(file.Sheets[file.SheetNames[i]]);
 
    let sheetData = {
@@ -60,7 +67,6 @@ for(let i = 0; i < sheets.length; i++)
             return;
         }
     }
-
 
       let linkData = {
          Title: "",

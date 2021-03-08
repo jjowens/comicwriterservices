@@ -52,7 +52,6 @@ const app = new Vue({
                         this.filteredAuthors.forEach(filteredAuthor => {
                             if (filteredAuthor.fullname === authorObj.fullname) {
                                 linkObj.filterCSS = "visible";
-                                return;
                             } else {
                                 linkObj.filterCSS = "hidden";
                             }
