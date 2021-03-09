@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Comic Writer Services</title>
     <link rel="stylesheet" type="text/css" href="public/css/ts/ts.css" media="screen"/>
     <script type="text/javascript" src="public/scripts/vue/vue.min.js"></script>
 </head>
@@ -28,7 +28,7 @@
                 <div v-for="authorObj in authors" class="flex flex-wrap">
                     <p>
                         <input type="checkbox" class="mr-2" v-model="filteredAuthors" v-bind:value="authorObj" @change="filterArticles"/>
-                        <label v-bind:for="authorObj">{{ authorObj.fullname }}</label>
+                        <label v-bind:for="authorObj">{{ authorObj.firstname }} {{ authorObj.lastname }}</label>
                     </p>
                 </div>
             </div>
@@ -39,10 +39,11 @@
                     <div class="bg-blue-200 rounded-t-lg p-2">
                         <h3>{{ articlesObj.category }}</h3>
                     </div>
-                    <div v-for="linkObj in articlesObj.links" class="mb-2 rounded bg-gray-100 p-2" :class="linkObj.filterCSS">
-                        <p>{{ linkObj.Title }}</p>
+                    <div v-for="linkObj in articlesObj.links" class="mb-2 rounded bg-gray-100 p-2" :class="[linkObj.filterCSS]">
+                        <p :class="[linkObj.filterCSS]">{{ linkObj.Title }}</p>
                         <p><a v-bind:href="linkObj.Link" class="text-blue-600 visited:text-purple-600" target="_blank">{{ linkObj.Link }}</a></p>
-                        <p><button v-for="authorObj in linkObj.Authors" v-on:click="addAuthorToFilter(authorObj)" class="mr-2">{{ authorObj.fullname }}</button></p>
+                        <p v-if="linkObj.Description.length > 0">{{ linkObj.Description }}</p>
+                        <p><button v-for="authorObj in linkObj.Authors" v-on:click="addAuthorToFilter(authorObj)" class="mr-2">{{ authorObj.firstname }} {{ authorObj.lastname }}</button></p>
                     </div>
                 </div>
             </div>

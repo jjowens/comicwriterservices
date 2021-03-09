@@ -20,11 +20,22 @@ function createAuthor(fullname) {
             firstName = firstName + names[i].trim() + " ";
         }
 
-        firstName = firstName.trim();
+        firstName = firstName;
         lastName = names[names.length - 1];
-    } else {
+    } else if (names.length == 2) {
         firstName = names[0];
         lastName = names[1];
+    } else {
+        firstName = "";
+        lastName = fullname.trim();
+    }
+
+    if (firstName !== undefined) {
+        firstName = firstName.trim();
+    }
+
+    if (lastName !== undefined) {
+        lastName = lastName.trim();
     }
 
     let fullName = fullname.trim();
