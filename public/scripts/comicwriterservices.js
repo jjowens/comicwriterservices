@@ -6,7 +6,8 @@ const app = new Vue({
     data: {
         authors: [],
         articles: [],
-        filteredAuthors: []
+        filteredAuthors: [],
+        currentAuthorObj: ''
     },
     methods: {
         preload: function(event) {
@@ -31,6 +32,7 @@ const app = new Vue({
                 this.filteredAuthors.splice(idx, 1);
             }
 
+            this.currentAuthorObj = authorObj;
             this.filterArticles();
         },
         filterArticles: function() {
@@ -54,7 +56,10 @@ const app = new Vue({
                                 this.articles[articleIdx].links[linkIdx].filterCSS = "visible";
                                 break;
                             } else {
-                                this.articles[articleIdx].links[linkIdx].filterCSS = "hidden";
+                                // DO NOT HIDE IF ALREADY FILTERED TO BE SHOWN
+                                if (this.articles[articleIdx].links[linkIdx].filterCSS !== "visible") {
+                                    this.articles[articleIdx].links[linkIdx].filterCSS = "hidden";
+                                }
                             }
                             
                         }
@@ -74,6 +79,38 @@ const app = new Vue({
                     }
                 }
             }
+        },
+        debugFilteredAuthors: function() {
+            for(let authorIdx = 0; authorIdx < this.filteredAuthors.length; authorIdx++) {
+                console.log("Author FirstName " + this.filteredAuthors[authorIdx].firstname);
+                console.log("Author LastName " + this.filteredAuthors[authorIdx].lastname);
+                console.log("Author Fullname " + this.filteredAuthors[authorIdx].fullname);
+            }
+        },
+        debugLinkObj: function(data) {
+            console.log("Link Titlte " + data.Title);
+            console.log("Link Authors");
+            for(let authorIdx = 0; authorIdx < data.Authors.length; authorIdx++) {
+                console.log("Author FirstName " + data.Authors[authorIdx].firstname);
+                console.log("Author LastName " + data.Authors[authorIdx].lastname);
+                console.log("Author Fullname " + data.Authors[authorIdx].fullname);
+                console.log("");
+            }
+        },
+        debugCurrentAuthor: function() {
+
+
+            for(let authorIdx = 0; authorIdx < this.filteredAuthors.length; authorIdx++) {
+                if (this.filteredAuthors[authorIdx].fullname === this.currentAuthorObj.fullname) {
+                    console.log("Current Author matches up");
+                    console.log("Author FirstName " + this.currentAuthorObj.firstname);
+                    console.log("Author LastName " + this.currentAuthorObj.lastname);
+                    console.log("Author Fullname " + this.currentAuthorObj.fullname);
+                }
+            }
+
+            this.debugFilteredAuthors();
+
         }
     }
 });

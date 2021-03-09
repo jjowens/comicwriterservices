@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Comic Writer Services</title>
     <link rel="stylesheet" type="text/css" href="public/css/ts/ts.css" media="screen"/>
     <script type="text/javascript" src="public/scripts/vue/vue.min.js"></script>
 </head>
@@ -17,12 +17,14 @@
         </div>
 
         <div>
-            <button v-on:click="debugLinks">Debug Links</button>
+            <button v-on:click="debugLinks" class="rounded p-2 bg-red-300">Debug Links</button>
+            <button v-on:click="debugFilteredAuthors" class="rounded p-2 bg-red-300">Debug Filtered Authors</button>
+            <button v-on:click="debugCurrentAuthor" class="rounded p-2 bg-red-300">Debug Current Author</button>
         </div>
 
         <div class="flex">
             <!-- AUTHORS -->
-            <div class="mt-2">
+            <div class="sticky inset-x-0 top-0 mt-2">
                 <div class="bg-blue-200 rounded-t-lg p-1">
                     <h3>Authors</h3>
                 </div>
@@ -48,6 +50,7 @@
                         <p><a v-bind:href="linkObj.Link" class="text-blue-600 visited:text-purple-600" target="_blank">{{ linkObj.Link }}</a></p>
                         <p v-if="linkObj.Description.length > 0">{{ linkObj.Description }}</p>
                         <p><button v-for="authorObj in linkObj.Authors" v-on:click="addAuthorToFilter(authorObj)" class="mr-2">{{ authorObj.firstname }} {{ authorObj.lastname }}</button></p>
+                        <button v-on:click="debugLinkObj(linkObj)">Debug Link</button>
                     </div>
                 </div>
             </div>
