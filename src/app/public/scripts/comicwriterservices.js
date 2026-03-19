@@ -11,7 +11,7 @@ const app = new Vue({
     },
     methods: {
         preload: function(event) {
-            fetch("../../public/data/data_og.json")
+            fetch("public/data/data.json")
             .then(response => response.json())
             .then(data => (this.parseData(data)))
         },
@@ -49,23 +49,32 @@ const app = new Vue({
         },
         addFilterToArticles: function() {
             for(let articleIdx=0; articleIdx < this.articles.length; articleIdx++) {
+                articleGroupVisibility = "visible";
+                foundAuthors = 0;
                 for(let linkIdx=0; linkIdx < this.articles[articleIdx].links.length; linkIdx++) {
                     totalAuthors = this.articles[articleIdx].links[linkIdx].Authors.length - 1;
-
                     for(let authorIdx=0; authorIdx < this.articles[articleIdx].links[linkIdx].Authors.length; authorIdx++) {
                         for(let filterAuthorIndex=0; filterAuthorIndex < this.filteredAuthors.length; filterAuthorIndex++) {
                             if (this.filteredAuthors[filterAuthorIndex].fullname.trim() === this.articles[articleIdx].links[linkIdx].Authors[authorIdx].fullname.trim()) {
                                 this.articles[articleIdx].links[linkIdx].filterCSS = "visible";
+                                foundAuthors += 1;
                                 break;
                             } else {
                                 // DO NOT HIDE IF ALREADY FILTERED TO BE SHOWN
                                 if (this.articles[articleIdx].links[linkIdx].filterCSS !== "visible") {
                                     this.articles[articleIdx].links[linkIdx].filterCSS = "hidden";
+                                } else {
+                                    foundAuthors = 0;
                                 }
                             }
                         }
                     }
                 }
+                if (foundAuthors === 0 && this.filteredAuthors.length > 0) {
+                    articleGroupVisibility = "hidden";
+                }
+
+                this.articles[articleIdx].filterCSS =  articleGroupVisibility;
             }
         }
     }
