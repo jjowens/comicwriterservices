@@ -11,7 +11,7 @@ const app = new Vue({
     },
     methods: {
         preload: function(event) {
-            fetch("/src/app/public/data/data.json")
+            fetch("../../public/data/data_og.json")
             .then(response => response.json())
             .then(data => (this.parseData(data)))
         },

@@ -6,6 +6,10 @@ This is forked from Daniel Hill's repo. All the hard work in gathering links is 
 
 There is a script, "comicwriterservices.js" in "public/scripts" folder which controls how the JSON data is retrieved, organised and then displayed. 
 
+## IDE
+You can test the web application with Web Storm or any other IDE. Please ensure that the directory ````src\app```` is configured as the web root folder.
+Otherwise, the relative paths for CSS, javascript, and data json would be incorrect.
+
 ## NPM commands
 
 All of the npm commands can be found in the package.json file at top level. Those commands are available to use.
