@@ -25,16 +25,10 @@
                 <div v-on:click="clearFilteredAuthors" class="mt-1 text-center">
                     <button class="rounded p-2 bg-blue-600 text-white">Clear Selection</button>
                 </div>
-                <div  class="flex flex-wrap">
-                    <p>
-                        <input type="checkbox" class="mr-2" id="toast" >
-                        <label for="toast">Toast</label>
-                    </p>
-                </div>
                 <div v-for="authorObj in authors" class="flex flex-wrap">
                     <p>
-                        <input type="checkbox" class="mr-2" v-model="filteredAuthors" v-bind:value="authorObj" @change="filterArticles" id="" >
-                        <label v-bind:for="authorObj">{{ authorObj.firstname }} {{ authorObj.lastname }}</label>
+                        <input type="checkbox" class="mr-2" v-model="filteredAuthors" v-bind:value="authorObj" @change="filterArticles" v-bind:id="authorObj.fullname" >
+                        <label v-bind:for="authorObj.fullname">{{ authorObj.firstname }} {{ authorObj.lastname }}</label>
                     </p>
                 </div>
             </div>
