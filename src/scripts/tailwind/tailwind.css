@@ -1,6 +1,8 @@
 @tailwind base;
 @tailwind components;
 
+html, body { background-color: beige;}
+
 .editor-button {
 	@apply bg-blue-400 text-white p-2 rounded m-1 cursor-pointer
 }
