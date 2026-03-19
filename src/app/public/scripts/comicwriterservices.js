@@ -49,28 +49,32 @@ const app = new Vue({
         },
         addFilterToArticles: function() {
             for(let articleIdx=0; articleIdx < this.articles.length; articleIdx++) {
-                article_group_visibility = "visible";
+                articleGroupVisibility = "visible";
+                foundAuthors = 0;
                 for(let linkIdx=0; linkIdx < this.articles[articleIdx].links.length; linkIdx++) {
                     totalAuthors = this.articles[articleIdx].links[linkIdx].Authors.length - 1;
                     for(let authorIdx=0; authorIdx < this.articles[articleIdx].links[linkIdx].Authors.length; authorIdx++) {
                         for(let filterAuthorIndex=0; filterAuthorIndex < this.filteredAuthors.length; filterAuthorIndex++) {
                             if (this.filteredAuthors[filterAuthorIndex].fullname.trim() === this.articles[articleIdx].links[linkIdx].Authors[authorIdx].fullname.trim()) {
                                 this.articles[articleIdx].links[linkIdx].filterCSS = "visible";
-                                article_group_visibility = "visible";
+                                foundAuthors += 1;
                                 break;
                             } else {
                                 // DO NOT HIDE IF ALREADY FILTERED TO BE SHOWN
                                 if (this.articles[articleIdx].links[linkIdx].filterCSS !== "visible") {
                                     this.articles[articleIdx].links[linkIdx].filterCSS = "hidden";
-                                    article_group_visibility = "hidden";
                                 } else {
-                                    article_group_visibility = "visible";
+                                    foundAuthors = 0;
                                 }
                             }
                         }
                     }
                 }
-                this.articles[articleIdx].filterCSS =  article_group_visibility;
+                if (foundAuthors === 0 && this.filteredAuthors.length > 0) {
+                    articleGroupVisibility = "hidden";
+                }
+
+                this.articles[articleIdx].filterCSS =  articleGroupVisibility;
             }
         }
     }
