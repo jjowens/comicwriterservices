@@ -37,7 +37,7 @@
             <div class="flex-1 rounded ml-2 mt-2">
                 <div v-for="articlesObj in articles" class="mb-4" :class="[articlesObj.filterCSS]">
                     <div class="bg-blue-200 rounded-t-lg p-2">
-                        <h3>{{ articlesObj.category }} {{ articlesObj.filterCSS}}</h3>
+                        <h3>{{ articlesObj.category }}</h3>
                     </div>
                     <div v-for="linkObj in articlesObj.links" class="mb-2 rounded bg-gray-100 p-2" :class="[linkObj.filterCSS]">
                         <p :class="[linkObj.filterCSS]">{{ linkObj.Title }}</p>
