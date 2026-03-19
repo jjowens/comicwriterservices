@@ -27,7 +27,7 @@
                 </div>
                 <div v-for="authorObj in authors" class="flex flex-wrap">
                     <p>
-                        <input type="checkbox" class="mr-2" v-model="filteredAuthors" v-bind:value="authorObj" @change="filterArticles"/>
+                        <input type="checkbox" class="mr-2" v-model="filteredAuthors" v-bind:value="authorObj" @change="filterArticles" >
                         <label v-bind:for="authorObj">{{ authorObj.firstname }} {{ authorObj.lastname }}</label>
                     </p>
                 </div>
@@ -35,7 +35,7 @@
 
             <!-- LINKS -->
             <div class="flex-1 rounded ml-2 mt-2">
-                <div v-for="articlesObj in articles" class="mb-4">
+                <div v-for="articlesObj in articles" class="mb-4" :class="[articlesObj.filterCSS]">
                     <div class="bg-blue-200 rounded-t-lg p-2">
                         <h3>{{ articlesObj.category }}</h3>
                     </div>
