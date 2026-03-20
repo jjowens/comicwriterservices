@@ -52,10 +52,10 @@ const app = new Vue({
                 articleGroupVisibility = "visible";
                 foundAuthors = 0;
                 for(let linkIdx=0; linkIdx < this.articles[articleIdx].links.length; linkIdx++) {
-                    totalAuthors = this.articles[articleIdx].links[linkIdx].authors.length - 1;
-                    for(let authorIdx=0; authorIdx < this.articles[articleIdx].links[linkIdx].authors.length; authorIdx++) {
+                    totalAuthors = this.articles[articleIdx].links[linkIdx].Authors.length - 1;
+                    for(let authorIdx=0; authorIdx < this.articles[articleIdx].links[linkIdx].Authors.length; authorIdx++) {
                         for(let filterAuthorIndex=0; filterAuthorIndex < this.filteredAuthors.length; filterAuthorIndex++) {
-                            if (this.filteredAuthors[filterAuthorIndex].fullname.trim() === this.articles[articleIdx].links[linkIdx].authors[authorIdx].fullname.trim()) {
+                            if (this.filteredAuthors[filterAuthorIndex].fullname.trim() === this.articles[articleIdx].links[linkIdx].Authors[authorIdx].fullname.trim()) {
                                 this.articles[articleIdx].links[linkIdx].filterCSS = "visible";
                                 foundAuthors += 1;
                                 break;

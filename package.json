@@ -13,9 +13,9 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "npx tailwindcss-cli@latest build src/scripts/tailwind/tailwind.css -c src/scripts/config/tailwind.dev.config.js -o src/app/public/css/ts/ts.css",
-    "prod": "npx tailwindcss-cli@latest build src/scripts/tailwind/tailwind.css -c src/scripts/config/tailwind.prod.config.js -o src/app/public/css/ts/ts.css",
-    "exportjson": "node.exe src\\scripts\\ExcelToJSON.js"
+    "dev": "npx tailwindcss-cli@latest build data_generator/tailwind/tailwind.css -c src/scripts/config/tailwind.dev.config.js -o src/app/public/css/ts/ts.css",
+    "prod": "npx tailwindcss-cli@latest build data_generator/tailwind/tailwind.css -c src/scripts/config/tailwind.prod.config.js -o src/app/public/css/ts/ts.css",
+    "exportjson": "node.exe data_generator\\ExcelToJSON.js"
   },
   "repository": {
     "type": "git",
