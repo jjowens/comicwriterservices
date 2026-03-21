@@ -80,12 +80,14 @@ for(let i = 0; i < sheets.length; i++)
         }
 
         let linkData = {
+            id: 0,
             title: "",
             link: res.Link,
             description: "",
             authors: []
         };
 
+        linkData.id = res.ID;
         linkData.title = res.Title;
 
         if (res.Description !== undefined) {

@@ -7,7 +7,8 @@ const app = new Vue({
         authors: [],
         articles: [],
         filteredAuthors: [],
-        currentAuthorObj: ''
+        currentAuthorObj: '',
+        debugPanelVisible: 'hidden'
     },
     methods: {
         preload: function(event) {

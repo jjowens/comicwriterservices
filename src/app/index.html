@@ -10,7 +10,7 @@
 </head>
 <body>
     <div id="app" class="ml-4 mr-4 mt-2">
-        <div>
+        <div :class="debugPanelVisible">
             <div class="bg-blue-200 rounded-t-lg p-1 mb-3">Debug Panel</div>
             <div>
                 <p>Authors: {{ authors.length }}</p>
@@ -46,7 +46,7 @@
                     <div class="bg-blue-200 rounded-t-lg p-2">
                         <h3>{{ articlesObj.category }}</h3>
                     </div>
-                    <div v-for="linkObj in articlesObj.links" class="mb-2 rounded bg-gray-100 p-2" :class="[linkObj.filterCSS]">
+                    <div v-for="linkObj in articlesObj.links" class="mb-2 rounded bg-gray-100 p-2" :class="[linkObj.filterCSS]" v-bind:id="linkObj.id">
                         <p :class="[linkObj.filterCSS]">{{ linkObj.title }}</p>
                         <p><a v-bind:href="linkObj.Link" class="text-blue-600 visited:text-purple-600" target="_blank">{{ linkObj.link }}</a></p>
                         <p v-if="linkObj.description.length > 0">{{ linkObj.description }}</p>
