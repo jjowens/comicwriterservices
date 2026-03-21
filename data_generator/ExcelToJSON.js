@@ -128,11 +128,9 @@ for(let i = 0; i < sheets.length; i++)
         linkData.authors = tempLinkAuthors;
 
         // ADD NEW LINKS
-        sheetData.links.push(linkData);
+        data.articles.push(linkData);
     })
 
-
-    data.articles.push(sheetData);
 }
 
 // REMOVE "NOT KNOWN" BEFORE SORTING.

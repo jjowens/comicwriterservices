@@ -24,30 +24,18 @@
         <div class="clear-both">
         </div>
         <div class="flex">
-            <!-- AUTHORS -->
-            <div class="mt-2">
-                <div class="bg-blue-200 rounded-t-lg p-1">
-                    <h3>Authors</h3>
-                </div>
-                <div v-on:click="clearFilteredAuthors" class="mt-1 text-center">
-                    <button class="rounded p-2 bg-blue-600 text-white">Clear Selection</button>
-                </div>
-                <div v-for="authorObj in authors" class="flex flex-wrap">
-                    <p>
-                        <input type="checkbox" class="mr-2" v-model="filteredAuthors" v-bind:value="authorObj" @change="filterArticles" v-bind:id="authorObj.fullname" >
-                        <label v-bind:for="authorObj.fullname">{{ authorObj.firstname }} {{ authorObj.lastname }}</label>
-                    </p>
-                </div>
-            </div>
-
             <!-- LINKS -->
             <div class="flex-1 rounded ml-2 mt-2">
-                <div v-for="articlesObj in articles" class="mb-4" :class="[articlesObj.filterCSS]">
-                    <div class="bg-blue-200 rounded-t-lg p-2">
-                        <h3>{{ articlesObj.category }}</h3>
+                <div v-for="articlesObj in articles" class="mb-4">
+                    <div class="mb-2 rounded bg-gray-100 p-2">
+                        <p class="font-bold">{{ articlesObj.title }}</p>
+                        <p><a v-bind:href="articlesObj.link" class="text-blue-600 visited:text-purple-600" target="_blank">{{ articlesObj.link }}</a></p>
+                        <p v-if="articlesObj.description.length > 0">{{ articlesObj.description }}</p>
+                        <p><span v-for="authorObj in articlesObj.authors" class="mr-2">{{ authorObj.firstname }} {{ authorObj.lastname }}</span></p>
+                        <p>Category: {{ articlesObj.category }}</p>
                     </div>
-                    <div v-for="linkObj in articlesObj.links" class="mb-2 rounded bg-gray-100 p-2" :class="[linkObj.filterCSS]" v-bind:id="linkObj.id">
-                        <p :class="[linkObj.filterCSS]">{{ linkObj.title }}</p>
+                    <div v-for="linkObj in articlesObj.links" class="mb-2 rounded bg-gray-100 p-2" v-bind:id="linkObj.id">
+                        <p>{{ linkObj.title }}</p>
                         <p><a v-bind:href="linkObj.Link" class="text-blue-600 visited:text-purple-600" target="_blank">{{ linkObj.link }}</a></p>
                         <p v-if="linkObj.description.length > 0">{{ linkObj.description }}</p>
                         <p><button v-for="authorObj in linkObj.authors" v-on:click="addAuthorToFilter(authorObj)" class="mr-2">{{ authorObj.firstname }} {{ authorObj.lastname }}</button></p>
