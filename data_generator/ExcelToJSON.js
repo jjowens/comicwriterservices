@@ -84,9 +84,11 @@ for(let i = 0; i < sheets.length; i++)
             title: "",
             link: res.Link,
             description: "",
-            authors: []
+            authors: [],
+            category: ""
         };
 
+        linkData.category = sheetName;
         linkData.id = res.ID;
         linkData.title = res.Title;
 
