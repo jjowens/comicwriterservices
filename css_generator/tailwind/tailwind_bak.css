@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+
+html, body { background-color: white;}
+
+.banner { background-color: white;
+    font-size: 2em;
+    font-family: "Arial Black", sans-serif;
+    margin: 0.2em;
+    padding: 0.2em;
+}
+
+.search-widget {
+    font-family: "Arial", sans-serif;
+    margin: 0.2em;
+    padding: 0.4em;
+    @apply bg-blue-200
+}
+
+.search-button {
+    font-family: "Arial", sans-serif;
+    margin: 0.2em;
+    padding: 0.2em 0.4em;
+}
+
+.search-widget div {
+    @apply mb-1 ml-1
+}
+
+.search-widget input {
+    border: gray solid 1px;
+}
+
+.link-widget {
+    @apply mb-2 rounded bg-blue-50 p-2 mb-4
+}
+
+@tailwind utilities;
