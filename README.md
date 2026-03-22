@@ -36,3 +36,10 @@ To export all data, run the command ```npm run exportjson```. In the spreadsheet
 ## Original Repo - Read Me Notes
 
 The original repo can be found at https://github.com/danieljhill/comicwriterservices
+
+## old NPM commands
+
+````
+"dev": "npx tailwindcss-cli@latest build css_generator/tailwind/tailwind.css -c css_generator/config/tailwind.dev.config.js -o src/app/public/css/ts/ts.css",
+"prod": "npx tailwindcss-cli@latest build css_generator/tailwind/tailwind.css -c css_generator/config/tailwind.prod.config.js -o src/app/public/css/ts/ts.css",
+````
