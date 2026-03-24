@@ -33,7 +33,7 @@
         <div class="flex">
             <!-- LINKS -->
             <div class="flex-1 rounded ml-2 mt-2">
-                <div v-for="articlesObj in articles" class="link-widget">
+                <div v-for="articlesObj in organiseMyArticles()" class="link-widget">
                     <p class="font-bold">{{ articlesObj.title }}</p>
                     <p><a v-bind:href="articlesObj.link" class="text-blue-600 visited:text-purple-600" target="_blank">{{ articlesObj.link }}</a></p>
                     <p v-if="articlesObj.description.length > 0">{{ articlesObj.description }}</p>
@@ -44,5 +44,5 @@
         </div>
     </div>
 </body>
-<script type="text/javascript" src="public/scripts/comicwriterservices.js"></script>
+<script type="text/javascript" src="public/scripts/comicwriterservices_v2.js"></script>
 </html>
