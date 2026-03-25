@@ -8,7 +8,8 @@ const app = new Vue({
         articles: [],
         debugPanelVisible: 'hidden',
         sortPropName: "category_title",
-        sortPropOrder: "asc"
+        sortPropOrder: "asc",
+        sortAuthorOrder: "asc"
     },
     methods: {
         preload: function(event) {
@@ -27,6 +28,15 @@ const app = new Vue({
                 return this.sortArticlesByPropReverse(this.sortPropName)
             } else {
                 return this.sortArticlesByProp(this.sortPropName)
+            }
+        },
+        organiseMyAuthors: function() {
+            if (this.sortAuthorOrder === "asc") {
+                return this.sortAuthors()
+            } else if (this.sortAuthorOrder === "desc")  {
+                return this.sortAuthorsReverse()
+            } else {
+                return this.sortAuthors()
             }
         },
         sortArticlesByProp: function(propName) {
@@ -66,6 +76,20 @@ const app = new Vue({
                     return 0;
                 })
             }
+        },
+        sortAuthors: function() {
+            return this.authors.slice().sort(function (a,b) {
+                if (a.lastname < b.lastname) return -1;
+                if (a.lastname > b.lastname) return 1;
+                return 0;
+            })
+        },
+        sortAuthorsReverse: function(propName) {
+            return this.authors.slice().sort(function (a,b) {
+                if (a.lastname > b.lastname) return -1;
+                if (a.lastname < b.lastname) return 1;
+                return 0;
+            })
         }
     }
 });

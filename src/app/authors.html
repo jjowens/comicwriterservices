@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comic Writer Services - Authors</title>
+    <link rel="stylesheet" type="text/css" href="/public/css/ts/ts.css" media="screen"/>
+    <script type="text/javascript" src="/public/scripts/vue/vue.min.js"></script>
+</head>
+<body>
+
+    <div id="app" class="ml-4 mr-4 mt-2">
+        <div :class="debugPanelVisible">
+            <div class="bg-blue-200 rounded-t-lg p-1 mb-3">Debug Panel</div>
+            <div>
+                <p>Authors: {{ authors.length }}</p>
+                <p>Articles: {{ articles.length }}</p>
+            </div>
+        </div>
+
+        <div class="banner">
+            <h1>Comic Writer Services</h1>
+        </div>
+        <div :class="debugPanelVisible">
+            <div class="bg-blue-200 rounded-t-lg p-1 mb-3">Debug Panel</div>
+            <div>
+                <p>Authors: {{ authors.length }}</p>
+                <p>Articles: {{ articles.length }}</p>
+            </div>
+        </div>
+        <div class="clear-both">
+        </div>
+        <div class="flex search-widget">
+            <div class="search-widget">
+                <div>
+                    <p><label for="sort_by">Sort By</label>
+                        <select name="sort_by" id="sort_by" v-model="sortAuthorOrder">
+                            <option value="asc">Ascending</option>
+                            <option value="desc">Descending</option>
+                        </select>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="clear-both"></div>
+        <div class="flex">
+            <!-- LINKS -->
+            <div class="flex-1 rounded ml-2 mt-2">
+                <div v-for="authorObj in organiseMyAuthors()" class="link-widget">
+                    <p class="font-bold">{{ authorObj.fullname }}</p>
+                    <p><a href="#" class="text-blue-600 visited:text-purple-600" target="_blank">Article Link</a></p>
+                    <p>Description</p>
+                    <p><span class="font-bold">Category</span>: Category</p>
+                </div>
+            </div>
+        </div>
+        </div>
+</body>
+<script type="text/javascript" src="public/scripts/comicwriterservices_v2.js"></script>
+</html>
