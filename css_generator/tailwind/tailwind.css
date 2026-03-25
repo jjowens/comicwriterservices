@@ -34,4 +34,8 @@ html, body { background-color: white;}
     @apply mb-2 rounded bg-blue-50 p-2 mb-4
 }
 
+.author-link-widget {
+    @apply mb-4
+}
+
 @tailwind utilities;

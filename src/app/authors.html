@@ -49,9 +49,13 @@
             <div class="flex-1 rounded ml-2 mt-2">
                 <div v-for="authorObj in organiseMyAuthors()" class="link-widget">
                     <p class="font-bold">{{ authorObj.fullname }}</p>
-                    <p><a href="#" class="text-blue-600 visited:text-purple-600" target="_blank">Article Link</a></p>
-                    <p>Description</p>
-                    <p><span class="font-bold">Category</span>: Category</p>
+                    <div v-for="articleObj in authorObj.articles" class="author-link-widget">
+                        <p class="font-bold">{{ articleObj.title }}</p>
+                        <p><a v-bind:href="articleObj.link" class="text-blue-600 visited:text-purple-600" target="_blank">{{ articleObj.link }}</a></p>
+                        <p v-if="articleObj.description.length > 0">{{ articleObj.description }}</p>
+                        <p><span v-for="authorObj in articleObj.authors" class="mr-2">{{ authorObj.firstname }} {{ authorObj.lastname }}</span></p>
+                        <p><span class="font-bold">Category</span>: {{ articleObj.category }}</p>
+                    </div>
                 </div>
             </div>
         </div>

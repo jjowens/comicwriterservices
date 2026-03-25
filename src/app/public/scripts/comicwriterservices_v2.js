@@ -18,8 +18,15 @@ const app = new Vue({
             .then(data => (this.parseData(data)))
         },
         parseData: function(data) {
-            this.authors = data.authors;
             this.articles = data.articles;
+            this.authors = data.authors;
+            this.matchArticlesToAuthors();
+        },
+        matchArticlesToAuthors: function() {
+            this.authors.forEach(author => {
+                //author.articles =  this.articles.filter((article) => article.id === 1001);
+                author.articles =  this.articles.filter((article) => author.articleids.includes(article.id));
+            });
         },
         organiseMyArticles: function() {
             if (this.sortPropOrder === "asc") {
