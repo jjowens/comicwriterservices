@@ -29,13 +29,6 @@ const app = new Vue({
                 return this.sortArticlesByProp(this.sortPropName)
             }
         },
-        sortArticles: function() {
-            return this.articles.slice().sort(function (a,b) {
-                if (a.title < b.title) return -1;
-                if (a.title > b.title) return 1;
-                return 0;
-            })
-        },
         sortArticlesByProp: function(propName) {
             if (propName === 'title') {
                 return this.articles.slice().sort(function (a,b) {
