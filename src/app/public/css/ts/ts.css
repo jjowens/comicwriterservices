@@ -635,7 +635,7 @@ html, body {
   background-color: rgba(191, 219, 254, var(--tw-bg-opacity))
 }
 
-.search-button {
+.widget-button {
   font-family: "Arial", sans-serif;
   padding: 0.2em 0.4em;
 }
