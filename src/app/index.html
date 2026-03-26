@@ -24,36 +24,29 @@
         </div>
         <div class="clear-both">
         </div>
-        <div class="flex search-widget">
-            <div class="search-widget">
-                <div><p><label for="search-author">Author(s)</label> <input type="text" id="search-author" name="search-author"/></p></div>
-                <div><p><label for="search-category">Category</label> <input type="text" id="search-category" name="search-category"/></p></div>
-                <div><p><input type="button" id="search-button" value="Search" class="widget-button" v-on:click=""/></p></div>
+        <div class="flex banner-widget">
+            <div>
+                <p><label for="sort_order">Sort Order</label>
+                    <select name="sort_order" id="sort_order" v-model="sortPropName">
+                        <option value="category_title">Category</option>
+                        <option value="title">Article Title</option>
+                    </select>
+                </p>
             </div>
-            <div class="search-widget">
-                <div>
-                    <p><label for="sort_order">Sort Order</label>
-                        <select name="sort_order" id="sort_order" v-model="sortPropName">
-                            <option value="category_title">Category</option>
-                            <option value="title">Article Title</option>
-                        </select>
-                    </p>
-                </div>
-                <div>
-                    <p><label for="sort_by">Sort By</label>
-                        <select name="sort_by" id="sort_by" v-model="sortPropOrder">
-                            <option value="asc">Ascending</option>
-                            <option value="desc">Descending</option>
-                        </select>
-                    </p>
-                </div>
+            <div>
+                <p><label for="sort_by">Sort By</label>
+                    <select name="sort_by" id="sort_by" v-model="sortPropOrder">
+                        <option value="asc">Ascending</option>
+                        <option value="desc">Descending</option>
+                    </select>
+                </p>
             </div>
         </div>
         <div class="clear-both">
         <div class="flex">
             <!-- LINKS -->
             <div class="flex-1 rounded ml-2 mt-2">
-                <div v-for="articlesObj in organiseMyArticles()" class="link-widget">
+                <div v-for="articlesObj in this.organiseMyArticles()" class="link-widget">
                     <p class="font-bold">{{ articlesObj.title }}</p>
                     <p><a v-bind:href="articlesObj.link" class="text-blue-600 visited:text-purple-600" target="_blank">{{ articlesObj.link }}</a></p>
                     <p v-if="articlesObj.description.length > 0">{{ articlesObj.description }}</p>

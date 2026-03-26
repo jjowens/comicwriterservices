@@ -627,7 +627,7 @@ html, body {
   padding: 0.2em;
 }
 
-.search-widget {
+.banner-widget {
   font-family: "Arial", sans-serif;
   margin: 0.2em;
   padding: 0.4em;
@@ -635,17 +635,13 @@ html, body {
   background-color: rgba(191, 219, 254, var(--tw-bg-opacity))
 }
 
-.widget-button {
-  font-family: "Arial", sans-serif;
-  padding: 0.2em 0.4em;
-}
-
-.search-widget div {
+.banner-widget div {
   margin-bottom: 0.25rem;
-  margin-left: 0.25rem
+  margin-left: 0.25rem;
+  padding: 0.5rem
 }
 
-.search-widget input {
+.banner-widget input {
   border: gray solid 1px;
 }
 

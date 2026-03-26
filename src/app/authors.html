@@ -11,36 +11,19 @@
 <body>
 
     <div id="app" class="ml-4 mr-4 mt-2">
-        <div :class="debugPanelVisible">
-            <div class="bg-blue-200 rounded-t-lg p-1 mb-3">Debug Panel</div>
-            <div>
-                <p>Authors: {{ authors.length }}</p>
-                <p>Articles: {{ articles.length }}</p>
-            </div>
-        </div>
-
         <div class="banner">
             <h1>Comic Writer Services</h1>
         </div>
-        <div :class="debugPanelVisible">
-            <div class="bg-blue-200 rounded-t-lg p-1 mb-3">Debug Panel</div>
-            <div>
-                <p>Authors: {{ authors.length }}</p>
-                <p>Articles: {{ articles.length }}</p>
-            </div>
-        </div>
         <div class="clear-both">
         </div>
-        <div class="flex search-widget">
-            <div class="search-widget">
-                <div>
-                    <p><label for="sort_by">Sort By</label>
-                        <select name="sort_by" id="sort_by" v-model="sortAuthorOrder">
-                            <option value="asc">Ascending</option>
-                            <option value="desc">Descending</option>
-                        </select>
-                    </p>
-                </div>
+        <div class="flex banner-widget">
+            <div>
+                <p><label for="sort_by">Last Name - Sort By</label>
+                    <select name="sort_by" id="sort_by" v-model="sortAuthorOrder">
+                        <option value="asc">Ascending</option>
+                        <option value="desc">Descending</option>
+                    </select>
+                </p>
             </div>
         </div>
         <div class="clear-both"></div>
