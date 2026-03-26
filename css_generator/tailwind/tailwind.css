@@ -33,4 +33,16 @@ html, body { background-color: white;}
     @apply mb-4
 }
 
+a {
+    @apply text-blue-600
+}
+
+a:hover {
+    @apply text-blue-600 underline
+}
+
+a:visited {
+    @apply text-purple-600 underline
+}
+
 @tailwind utilities;
