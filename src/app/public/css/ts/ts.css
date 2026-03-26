@@ -658,6 +658,10 @@ html, body {
   padding: 0.5rem
 }
 
+.author-link-widget {
+  margin-bottom: 1rem
+}
+
 .visible {
   visibility: visible;
 }

@@ -10,7 +10,7 @@ let data = {
     articles:[],
 }
 
-function createAuthor(fullname) {
+function createAuthor(fullname, articleid) {
     let names = fullname.trim().split(" ");
     let firstName = "";
     let lastName = "";
@@ -20,9 +20,8 @@ function createAuthor(fullname) {
             firstName = firstName + names[i].trim() + " ";
         }
 
-        firstName = firstName;
         lastName = names[names.length - 1];
-    } else if (names.length == 2) {
+    } else if (names.length === 2) {
         firstName = names[0];
         lastName = names[1];
     } else {
@@ -39,11 +38,19 @@ function createAuthor(fullname) {
     }
 
     let fullName = fullname.trim();
+    let listOfArticles = []
+
+    if (articleid === undefined) {
+        listOfArticles.push(0);
+    } else {
+        listOfArticles.push(articleid);
+    }
 
     let obj = {
         fullname: fullName,
         firstname: firstName,
-        lastname: lastName
+        lastname: lastName,
+        articleids: listOfArticles
     };
 
     return obj;
@@ -71,6 +78,8 @@ for(let i = 0; i < sheets.length; i++)
         category: sheetName,
         links: []
     };
+
+    let totalFounddNumberOfTimes = 0;
 
     temp.forEach((res) => {
         if (res.Ignore !== undefined) {
@@ -111,13 +120,25 @@ for(let i = 0; i < sheets.length; i++)
 
         // CHECK IF LIST OF AUTHORS ALREADY CONTAIN AUTHOR FOR THIS ARTICLE
         authors.forEach(author => {
-            let tempAuthor = createAuthor(author);
+            let tempAuthor = createAuthor(author, res.ID);
+            console.log("Author's article id " + res.ID);
 
             let found = tempAuthors.some(item => item.fullname === tempAuthor.fullname);
 
             // ADD AUTHOR TO GENERAL LIST OF AUTHORS
             if (found === false) {
                 tempAuthors.push(tempAuthor);
+            } else {
+                console.log("Found author")
+                totalFounddNumberOfTimes ++;
+                console.log(tempAuthor);
+
+                // UPDATE AUTHOR's LIST OF ARTICLES
+                let idx = tempAuthors.findIndex(item => item.fullname === tempAuthor.fullname);
+                console.log("IDX " + idx);
+                if (idx !== -1) {
+                    tempAuthors[idx].articleids.push(res.ID);
+                }
             }
 
             // ADD AUTHOR TO ARTICLE LIST OF AUTHORS
@@ -131,6 +152,7 @@ for(let i = 0; i < sheets.length; i++)
         data.articles.push(linkData);
     })
 
+    console.log("Total Number of times authors were found = " + totalFounddNumberOfTimes);
 }
 
 // REMOVE "NOT KNOWN" BEFORE SORTING.

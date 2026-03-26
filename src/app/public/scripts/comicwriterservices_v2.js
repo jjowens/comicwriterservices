@@ -8,7 +8,10 @@ const app = new Vue({
         articles: [],
         debugPanelVisible: 'hidden',
         sortPropName: "category_title",
-        sortPropOrder: "asc"
+        sortPropOrder: "asc",
+        sortAuthorOrder: "asc",
+        searchArticleCategory: "",
+        searchArticleAuthor: ""
     },
     methods: {
         preload: function(event) {
@@ -17,8 +20,15 @@ const app = new Vue({
             .then(data => (this.parseData(data)))
         },
         parseData: function(data) {
-            this.authors = data.authors;
             this.articles = data.articles;
+            this.authors = data.authors;
+            this.matchArticlesToAuthors();
+        },
+        matchArticlesToAuthors: function() {
+            this.authors.forEach(author => {
+                //author.articles =  this.articles.filter((article) => article.id === 1001);
+                author.articles =  this.articles.filter((article) => author.articleids.includes(article.id));
+            });
         },
         organiseMyArticles: function() {
             if (this.sortPropOrder === "asc") {
@@ -27,6 +37,15 @@ const app = new Vue({
                 return this.sortArticlesByPropReverse(this.sortPropName)
             } else {
                 return this.sortArticlesByProp(this.sortPropName)
+            }
+        },
+        organiseMyAuthors: function() {
+            if (this.sortAuthorOrder === "asc") {
+                return this.sortAuthors()
+            } else if (this.sortAuthorOrder === "desc")  {
+                return this.sortAuthorsReverse()
+            } else {
+                return this.sortAuthors()
             }
         },
         sortArticlesByProp: function(propName) {
@@ -66,6 +85,23 @@ const app = new Vue({
                     return 0;
                 })
             }
+        },
+        sortAuthors: function() {
+            return this.authors.slice().sort(function (a,b) {
+                if (a.lastname < b.lastname) return -1;
+                if (a.lastname > b.lastname) return 1;
+                return 0;
+            })
+        },
+        sortAuthorsReverse: function(propName) {
+            return this.authors.slice().sort(function (a,b) {
+                if (a.lastname > b.lastname) return -1;
+                if (a.lastname < b.lastname) return 1;
+                return 0;
+            })
+        },
+        searchArticles: function() {
+            return this.articles.slice().sort(function (a,b) {})
         }
     }
 });
