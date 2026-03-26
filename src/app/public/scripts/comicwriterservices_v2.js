@@ -9,7 +9,9 @@ const app = new Vue({
         debugPanelVisible: 'hidden',
         sortPropName: "category_title",
         sortPropOrder: "asc",
-        sortAuthorOrder: "asc"
+        sortAuthorOrder: "asc",
+        searchArticleCategory: "",
+        searchArticleAuthor: ""
     },
     methods: {
         preload: function(event) {
@@ -97,6 +99,9 @@ const app = new Vue({
                 if (a.lastname < b.lastname) return 1;
                 return 0;
             })
+        },
+        searchArticles: function() {
+            return this.articles.slice().sort(function (a,b) {})
         }
     }
 });
