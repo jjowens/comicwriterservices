@@ -6,6 +6,7 @@ const app = new Vue({
     data: {
         authors: [],
         articles: [],
+        searchResults: [],
         debugPanelVisible: 'hidden',
         sortPropName: "category_title",
         sortPropOrder: "asc",
@@ -32,11 +33,11 @@ const app = new Vue({
         },
         organiseMyArticles: function() {
             if (this.sortPropOrder === "asc") {
-                return this.sortArticlesByProp(this.sortPropName)
+               return this.sortArticlesByProp(this.sortPropName);
             } else if (this.sortPropOrder === "desc")  {
-                return this.sortArticlesByPropReverse(this.sortPropName)
+               return this.sortArticlesByPropReverse(this.sortPropName);
             } else {
-                return this.sortArticlesByProp(this.sortPropName)
+               return this.sortArticlesByProp(this.sortPropName);
             }
         },
         organiseMyAuthors: function() {
@@ -99,9 +100,6 @@ const app = new Vue({
                 if (a.lastname < b.lastname) return 1;
                 return 0;
             })
-        },
-        searchArticles: function() {
-            return this.articles.slice().sort(function (a,b) {})
         }
     }
 });
