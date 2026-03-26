@@ -1,3 +1,15 @@
+# Comic Writer Services
+I've started this project many years ago. I chose to use Vue.js because it's a simple javascript that wouldn't require dedicated hosting. 
+Then Life happened. The project fell by the wayside. In March 2026, I decided to revisit this website just to finish it. This is the last update. 
+
+Nothing more will be added. This repo contains two webpages, a stylsheet and a few scripts. 
+The web applicaiton can be found in the folder ````src/app/````. 
+You can use GitHub actions to deploy the contents of this folder to your GitHub Pages.
+
+I had fun and learnt a a lot from developing a Vue app. Feel free to reuse the code for your own means.
+
+## PROJECT NO LONGER MAINTAINED - 26/03/2026
+
 # Read Me
 This is forked from Daniel Hill's repo. All the hard work in gathering links is credited to Daniel Hill and Caleb Monroe. https://github.com/danieljhill/comicwriterservices
 
