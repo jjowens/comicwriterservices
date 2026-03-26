@@ -68,7 +68,6 @@ for(let i = 0; i < sheets.length; i++)
 
     // CHECK IF WE SHOULD EXPORT THIS WORKSHEET
     if (sheetName.trim().substring(0,1) === "-") {
-        console.log("Found ignored worksheet")
         break;
     }
 
@@ -121,7 +120,6 @@ for(let i = 0; i < sheets.length; i++)
         // CHECK IF LIST OF AUTHORS ALREADY CONTAIN AUTHOR FOR THIS ARTICLE
         authors.forEach(author => {
             let tempAuthor = createAuthor(author, res.ID);
-            console.log("Author's article id " + res.ID);
 
             let found = tempAuthors.some(item => item.fullname === tempAuthor.fullname);
 
@@ -129,13 +127,10 @@ for(let i = 0; i < sheets.length; i++)
             if (found === false) {
                 tempAuthors.push(tempAuthor);
             } else {
-                console.log("Found author")
                 totalFounddNumberOfTimes ++;
-                console.log(tempAuthor);
 
                 // UPDATE AUTHOR's LIST OF ARTICLES
                 let idx = tempAuthors.findIndex(item => item.fullname === tempAuthor.fullname);
-                console.log("IDX " + idx);
                 if (idx !== -1) {
                     tempAuthors[idx].articleids.push(res.ID);
                 }
@@ -151,8 +146,6 @@ for(let i = 0; i < sheets.length; i++)
         // ADD NEW LINKS
         data.articles.push(linkData);
     })
-
-    console.log("Total Number of times authors were found = " + totalFounddNumberOfTimes);
 }
 
 // REMOVE "NOT KNOWN" BEFORE SORTING.
