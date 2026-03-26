@@ -9,7 +9,6 @@
     <script type="text/javascript" src="/public/scripts/vue/vue.min.js"></script>
 </head>
 <body>
-
     <div id="app" class="ml-4 mr-4 mt-2">
         <div class="banner">
             <h1>Comic Writer Services</h1>
@@ -18,12 +17,18 @@
         </div>
         <div class="flex banner-widget">
             <div>
-                <p><label for="sort_by">Last Name - Sort By</label>
+                <p><label for="sort_by">Sort By Last Name</label>
                     <select name="sort_by" id="sort_by" v-model="sortAuthorOrder">
                         <option value="asc">Ascending</option>
                         <option value="desc">Descending</option>
                     </select>
                 </p>
+            </div>
+            <div>
+                <p><a href="index.html">View articles by category</a></p>
+            </div>
+            <div>
+                <p><a href="authors.html">View articles by authors</a></p>
             </div>
         </div>
         <div class="clear-both"></div>

@@ -658,6 +658,23 @@ html, body {
   margin-bottom: 1rem
 }
 
+a {
+  --tw-text-opacity: 1;
+  color: rgba(37, 99, 235, var(--tw-text-opacity))
+}
+
+a:hover {
+  --tw-text-opacity: 1;
+  color: rgba(37, 99, 235, var(--tw-text-opacity));
+  text-decoration: underline
+}
+
+a:visited {
+  --tw-text-opacity: 1;
+  color: rgba(124, 58, 237, var(--tw-text-opacity));
+  text-decoration: underline
+}
+
 .visible {
   visibility: visible;
 }
